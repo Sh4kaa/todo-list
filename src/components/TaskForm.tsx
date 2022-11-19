@@ -1,13 +1,16 @@
 import React from 'react';
 
+//css
+import styles from './TaskForm.module.css';
+
 type Props = {
   btnText: string;
 };
 
 const TaskForm = ({ btnText }: Props) => {
   return (
-    <form>
-      <div>
+    <form className={styles.form}>
+      <div className={styles.input_container}>
         <label htmlFor="title">Título</label>
         <input
           id="title"
@@ -16,7 +19,7 @@ const TaskForm = ({ btnText }: Props) => {
           placeholder="Título da tarefa"
         />
       </div>
-      <div>
+      <div className={styles.input_container}>
         <label htmlFor="difficulty">Dificuldade:</label>
         <input
           id="difficulty"

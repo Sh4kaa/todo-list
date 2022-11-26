@@ -8,15 +8,22 @@ import TaskList from './components/TaskList';
 
 // interface
 import { ITask } from './interfaces/Task';
+import { useState } from 'react';
 
 function App() {
+  const [taskList, setTaskList] = useState<ITask[]>([]);
+
   return (
     <div>
       <Header />
       <main className={styles.main}>
         <div>
           <h2>O que você vai fazer?</h2>
-          <TaskForm btnText="Criar tarefa" />
+          <TaskForm
+            btnText="Criar tarefa"
+            taskList={taskList}
+            setTaskList={setTaskList}
+          />
         </div>
         <div>
           <h2>Suas tarefas</h2>

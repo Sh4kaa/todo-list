@@ -20,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  animation: modalEffect 0.5s;
 }
 .modal h2 {
   margin-bottom: 1em;
@@ -27,4 +28,15 @@
 
 .modal form {
   width: 90%;
+}
+
+@keyframes modalEffect {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(initial);
+  }
 }

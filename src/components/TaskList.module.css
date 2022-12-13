@@ -35,3 +35,7 @@
 .actions i:hover {
   color: #61dafb;
 }
+
+i[class='bi bi-trash']:hover {
+  color: red;
+}

@@ -10,7 +10,7 @@ interface Props {
   taskList: ITask[];
   setTaskList?: React.Dispatch<React.SetStateAction<ITask[]>>;
   task?: ITask | null;
-  handleUpdate?(id: number, title: string, difficulty: number): void;
+  handleUpdate?(id: number, title: string, difficulty: string): void;
 }
 
 const TaskForm = ({
@@ -22,7 +22,7 @@ const TaskForm = ({
 }: Props) => {
   const [id, setId] = useState<number>(0);
   const [title, setTitle] = useState<string>('');
-  const [difficulty, setDifficulty] = useState<number>(0);
+  const [difficulty, setDifficulty] = useState<string>('');
 
   useEffect(() => {
     if (task) {
@@ -34,6 +34,15 @@ const TaskForm = ({
 
   const addTaskHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    //validações do input
+    if (title === '') {
+      alert('Digite uma tarefa');
+      return;
+    } else if (difficulty === '') {
+      alert('Insira uma dificuldade');
+      return;
+    }
+    // fim das validações do input
     if (handleUpdate) {
       handleUpdate(id, title, difficulty);
     } else {
@@ -41,14 +50,14 @@ const TaskForm = ({
       const newTask: ITask = { id, title, difficulty };
       setTaskList!([...taskList, newTask]);
       setTitle('');
-      setDifficulty(0);
+      setDifficulty('');
     }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.name === 'title'
       ? setTitle(e.target.value)
-      : setDifficulty(parseInt(e.target.value));
+      : setDifficulty(e.target.value);
   };
 
   return (

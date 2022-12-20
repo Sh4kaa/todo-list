@@ -1,11 +1,11 @@
 // components
 import Footer from './components/Footer';
 import Header from './components/Header';
-//css
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
-import { useState } from 'react';
 import Modal from './components/Modal';
+//React
+import { useState } from 'react';
 
 //css
 import styles from './App.module.css';
@@ -36,7 +36,7 @@ function App() {
     setTaskToUpdate(task);
   };
 
-  const updateTask = (id: number, title: string, difficulty: number) => {
+  const updateTask = (id: number, title: string, difficulty: string) => {
     const updatedTask: ITask = { id, title, difficulty };
     const updatedItems = taskList.map((task) => {
       return task.id === updatedTask.id ? updatedTask : task;

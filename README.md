@@ -1,8 +1,5 @@
 <h1 align="center">Todo-list</h1>
 </br>
-<div align="center">
-  <h2><strong>🚀 Descrição 📚</strong></h2>
-</div>
 
 <div align="center">
   <p>Este é um projeto de lista de tarefas onde é possível adicionar ou remover tarefas</p>

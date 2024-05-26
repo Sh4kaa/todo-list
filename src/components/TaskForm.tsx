@@ -5,6 +5,7 @@ import { ITask } from '../interfaces/Task';
 //css
 import styles from './TaskForm.module.css';
 
+
 interface Props {
   btnText: string;
   taskList: ITask[];
@@ -23,6 +24,7 @@ const TaskForm = ({
   const [id, setId] = useState<number>(0);
   const [title, setTitle] = useState<string>('');
   const [difficulty, setDifficulty] = useState<string>('');
+
 
   useEffect(() => {
     if (task) {
@@ -51,6 +53,7 @@ const TaskForm = ({
       setTaskList!([...taskList, newTask]);
       setTitle('');
       setDifficulty('');
+
     }
   };
 

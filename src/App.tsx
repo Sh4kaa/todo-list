@@ -12,9 +12,13 @@ import styles from './App.module.css';
 
 // interface
 import { ITask } from './interfaces/Task';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
-  const [taskList, setTaskList] = useState<ITask[]>([]);
+  const [taskList, setTaskList] = useLocalStorage('tasks', [])
+  // const [taskList, setTaskList] = useState<ITask[]>([]);
+
+
   const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null);
 
   const deleTask = (id: number) => {
